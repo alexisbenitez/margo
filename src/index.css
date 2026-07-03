@@ -365,19 +365,25 @@ h1, h2, h3, h4 {
 .about-card {
   padding: 2rem 0;
   border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "num title" ". body";
+  column-gap: 0.6rem;
+  row-gap: 0.75rem;
+  align-items: baseline;
 }
 .about-card .num {
+  grid-area: num;
   font-family: var(--serif);
   font-style: italic;
   color: var(--terracotta);
   font-size: 1rem;
-  margin-bottom: 1rem;
-  display: block;
 }
 .about-card h3 {
+  grid-area: title;
   font-size: 1.6rem;
-  margin-bottom: 0.75rem;
 }
+.about-card p { grid-area: body; }
 .about-card p {
   font-size: 0.95rem;
   color: var(--cream-soft);
@@ -651,14 +657,22 @@ h1, h2, h3, h4 {
 .modal-overlay.open .article-modal { transform: none; }
 .article-close { position: absolute; top: 1rem; right: 1rem; z-index: 2; background: rgba(20,10,22,0.55); backdrop-filter: blur(4px); border-radius: 999px; width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; color: var(--cream); }
 .article-close:hover { color: var(--terracotta); }
-.article-hero { position: relative; width: 100%; overflow: hidden; border-radius: 18px 18px 0 0; background: #2a1836; }
+/* Universal article layout: title -> hook subtitle -> image -> body paragraphs */
+.article-head { padding: 2.3rem 2rem 1.5rem; }
+.article-meta { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta); }
+.article-head h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); line-height: 1.1; margin: 0.6rem 0 0.75rem; }
+.article-hook { font-family: var(--serif); font-style: italic; font-size: clamp(1.05rem, 2vw, 1.28rem); line-height: 1.45; color: var(--cream-soft); opacity: 0.92; }
+.article-hero { position: relative; width: 100%; overflow: hidden; background: #2a1836; }
 .article-hero img { width: 100%; height: auto; display: block; }
-.article-content { padding: 1.9rem 2rem 2.1rem; }
-.article-content h2 { font-family: var(--serif); font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin: 0.4rem 0 1.2rem; line-height: 1.1; }
+.article-content { padding: 1.7rem 2rem 2.1rem; }
 .article-content p { color: var(--cream-soft); opacity: 0.85; margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
 .article-foot { margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .article-foot span { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--cream); max-width: 60%; }
-@media (max-width: 560px) { .article-content { padding: 1.4rem 1.25rem 1.6rem; } .article-foot span { max-width: 100%; } }
+@media (max-width: 560px) {
+  .article-head { padding: 1.6rem 1.25rem 1.1rem; }
+  .article-content { padding: 1.4rem 1.25rem 1.6rem; }
+  .article-foot span { max-width: 100%; }
+}
 
 /* ---------- MAP ---------- */
 .map-section {
@@ -961,7 +975,20 @@ h1, h2, h3, h4 {
 .service h3 { font-size: clamp(1.4rem, 2.4vw, 1.95rem); }
 .service .desc { font-size: 0.95rem; color: var(--cream-soft); opacity: 0.78; max-width: 54ch; }
 .services-note { margin-top: 2rem; font-size: 0.95rem; color: var(--cream-soft); opacity: 0.7; }
-@media (max-width: 860px) { .service { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.6rem 0; } }
+@media (max-width: 860px) {
+  /* number + title stay on ONE line; description drops below, aligned under the title */
+  .service {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "idx title" ". desc";
+    column-gap: 0.85rem;
+    row-gap: 0.4rem;
+    padding: 1.6rem 0;
+    align-items: baseline;
+  }
+  .service .idx { grid-area: idx; }
+  .service h3 { grid-area: title; }
+  .service .desc { grid-area: desc; }
+}
 
 /* ---------- SHOP ---------- */
 .shop { background: var(--bg); }
@@ -1244,11 +1271,32 @@ h1, h2, h3, h4 {
 .checkout-success p { font-size: 0.9rem; color: var(--cream-soft); opacity: 0.8; }
 .modal-close { position: absolute; }
 
+/* ---------- QV badge on every page (login / admin) ---------- */
+.page-qv {
+  text-align: center;
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+.page-qv a {
+  display: inline-flex; align-items: center; gap: 9px;
+  color: var(--cream);
+  transition: color 0.3s, opacity 0.3s;
+}
+.page-qv a:hover { color: var(--terracotta); }
+.page-qv svg { display: block; flex-shrink: 0; }
+/* login: pin the badge to the bottom of the screen */
+.login-shell .page-qv {
+  position: absolute;
+  bottom: 1.4rem; left: 0; right: 0;
+  opacity: 0.7;
+}
+
 /* ---------- LOGIN (hidden /login) ---------- */
 .login-shell {
+  position: relative;
   min-height: 100svh;
   display: flex; align-items: center; justify-content: center;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 4.5rem;
   background:
     radial-gradient(circle at 30% 20%, rgba(122,30,91,0.35), transparent 55%),
     var(--bg);

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { Plus, Pencil, Trash2, LogOut, RotateCcw, Check, X, Upload } from 'lucide-react'
 import { loadProducts, saveProducts, resetProducts, slugId, money } from './products'
+import FooterOwl from './components/FooterOwl'
 
 const EMPTY = { id: '', name: '', brand: 'Angel en Provence', note: '', price: '', image: '', inStock: true }
 
@@ -206,6 +207,12 @@ export default function Admin() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="page-qv" style={{ paddingTop: '2.5rem' }}>
+          <a href="https://quantumvector.org" target="_blank" rel="noopener noreferrer">
+            <FooterOwl size={18} /> Powered by Quantum Vector
+          </a>
         </div>
       </div>
 

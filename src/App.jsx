@@ -814,13 +814,15 @@ export default function App() {
           {article && (
             <>
               <button className="cart-close article-close" onClick={() => setArticle(null)} aria-label="Close"><X size={22} /></button>
+              <div className="article-head">
+                <span className="article-meta">{article.category} · {article.date}</span>
+                <h2>{article.title}</h2>
+                <p className="article-hook">{article.excerpt}</p>
+              </div>
               <div className="article-hero">
                 <img src={article.image} alt={article.title} />
-                <span className="journal-cat">{article.category}</span>
               </div>
               <div className="article-content">
-                <span className="journal-date">{article.date}</span>
-                <h2>{article.title}</h2>
                 {article.body.map((p, i) => <p key={i}>{p}</p>)}
                 <div className="article-foot">
                   <span>Questions about your hair? Margo is happy to talk you through it.</span>

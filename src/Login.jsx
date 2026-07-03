@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Lock, ArrowRight } from 'lucide-react'
+import FooterOwl from './components/FooterOwl'
 
 // Demo-level gate. The password lives client-side, so this keeps the admin page
 // out of casual reach (no link points to it, and you need the URL + password) but
@@ -60,6 +61,12 @@ export default function Login() {
 
         <a href="/" className="login-back">← Back to website</a>
       </form>
+
+      <div className="page-qv">
+        <a href="https://quantumvector.org" target="_blank" rel="noopener noreferrer">
+          <FooterOwl size={18} /> Powered by Quantum Vector
+        </a>
+      </div>
     </div>
   )
 }
