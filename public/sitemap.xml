@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://margohairstylist.co.nz/</loc>
+    <loc>https://margo-hairstyle.netlify.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://margohairstylist.co.nz/services.md</loc>
+    <loc>https://margo-hairstyle.netlify.app/services.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://margohairstylist.co.nz/products.md</loc>
+    <loc>https://margo-hairstyle.netlify.app/products.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://margohairstylist.co.nz/contact.md</loc>
+    <loc>https://margo-hairstyle.netlify.app/contact.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://margohairstylist.co.nz/llms.txt</loc>
+    <loc>https://margo-hairstyle.netlify.app/llms.txt</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

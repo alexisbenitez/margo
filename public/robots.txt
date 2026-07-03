@@ -50,4 +50,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://margohairstylist.co.nz/sitemap.xml
+Sitemap: https://margo-hairstyle.netlify.app/sitemap.xml
