@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Lenis from 'lenis'
 import {
   MessageSquare, MapPin, Clock, ArrowRight, Scissors, Phone, Star,
-  ShoppingCart, Plus, Minus, X, Check, ShieldCheck,
+  ShoppingCart, Plus, Minus, X, Check, ShieldCheck, BookOpen,
 } from 'lucide-react'
 import FooterOwl from './components/FooterOwl'
 import LoadingScreen from './components/LoadingScreen'
@@ -26,6 +26,90 @@ const SERVICES = [
   { name: 'Keratin & Straightening', desc: 'Smoothing and keratin treatments that leave frizz behind and make everyday hair far more manageable.' },
   { name: 'Curly Hair', desc: 'Curl-literate cutting and styling that works with your natural pattern instead of fighting it.' },
   { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves using the Angel en Provence organic range.' },
+]
+
+// Hair education articles. Genuine, helpful content in Margo's education-first
+// spirit (she treats every appointment as a chance to teach, not just to cut).
+// Swap the images / add articles when Margo sends her own photos.
+const JOURNAL = [
+  {
+    id: 'hair-thins-with-age',
+    category: 'Hair science',
+    date: 'July 2026',
+    title: 'Why your hair gets finer with age, and what actually helps',
+    image: '/blog/hair-thinning.jpg',
+    thumb: '/blog/hair-thinning-thumb.jpg',
+    excerpt: 'Aging hair is often not just "dry hair". The strand itself slowly changes. Here is what is really going on, and how to look after it.',
+    body: [
+      'If your hair feels finer, flatter or more fragile than it used to, you are not imagining it. Research shows that individual hair fibres can genuinely become smaller in diameter over time, from a mix of oxidative stress, inflammation and years of repeated wear and tear. Aging hair is often not simply "dry hair"; the structure of the strand itself is slowly changing.',
+      'A younger, healthier strand tends to have a thick diameter, a smooth cuticle layer, plenty of stretch and good moisture retention. Over the years that can shift: the diameter thins, the cuticle weakens and lifts, elasticity drops so hair breaks more easily, it holds less moisture, and the surface becomes rougher, which creates more friction and more damage.',
+      'The reason is simple once you look closely. Hair naturally loses some of its protein, lipids and internal moisture support as we age, and every strand becomes a little more vulnerable to the things we do to it: heat, colour, sun and rough brushing.',
+      'The good news is that most of this is manageable. The aim is to protect what you have and support the strand rather than strip it. That means gentler, sulfate-free washing, keeping heat tools in check with a proper heat protectant, and feeding the hair with rich moisture and a little protein to keep it strong and elastic.',
+      'This is exactly why Margo leans on the organic Angel en Provence range and treatments like keratin smoothing. They work with the hair rather than against it, smoothing the cuticle and putting moisture and structure back in. Looking after the scalp matters too, since that is where every new, healthy strand begins.',
+      'None of this is about chasing your twenty-year-old hair. It is about understanding how your hair is changing so you can care for the hair you have now, and keep it looking healthy, soft and full of life. If you are noticing changes, mention it at your next appointment and Margo will build a simple plan with you.',
+    ],
+  },
+  {
+    id: 'hair-science-basics',
+    category: 'Hair science',
+    date: 'July 2026',
+    title: 'Hair science, simply: how your hair is actually built',
+    image: '/blog/hair-science.jpg',
+    thumb: '/blog/hair-science-thumb.jpg',
+    excerpt: 'Once you understand how a strand of hair is put together, looking after it makes a lot more sense.',
+    body: [
+      'Margo believes that the more you understand your hair, the better you can care for it, so here is the science made simple. Every strand has two parts: the root, which sits inside your scalp in the follicle, and the shaft, the visible part you style.',
+      'The shaft itself is built in three layers. The cuticle is the outer layer, made of overlapping scale-like cells that protect everything inside and give hair its shine. The cortex is the middle layer and makes up 80 to 90 percent of the hair, holding the keratin protein and the melanin that gives your natural colour, and providing strength and elasticity. Right in the centre is the medulla, a soft core that is not even present in every hair type.',
+      'Your hair also grows in cycles, and every strand is at a different stage. Anagen is the active growth phase and can last two to six years. Catagen is a short transition of a few weeks. Telogen is the resting phase, where old hair eventually sheds to make room for new growth. Losing some hairs every day is completely normal; it is just part of the cycle.',
+      'The difference between damaged and healthy hair comes down to that cuticle. Healthy hair has a smooth, flat cuticle, so it reflects light, feels soft and resists breakage. Damaged hair has a raised, rough cuticle, which leaves it dry, brittle and prone to split ends.',
+      'Here is the part that connects to everything Margo does in the studio. Hair is made of keratin protein, held in shape by tiny disulfide bonds. Chemical services like colour, keratin smoothing and perms work by gently breaking and then reforming those bonds. Done with knowledge and good products, that is how we reshape and refresh your hair safely.',
+      'So good hair care really is simple: cleanse gently with the right shampoo for your hair, condition regularly, nourish with oils or treatments, keep heat in check, and support it from the inside with a good diet and enough water. Healthy hair is, in the end, just well cared-for hair. Ask Margo anything about yours next time you are in the chair.',
+    ],
+  },
+  {
+    id: 'make-colour-last',
+    category: 'Colour care',
+    date: 'June 2026',
+    title: 'Making your colour last between visits',
+    image: '/journal/colour.jpg',
+    excerpt: 'A few simple habits that keep your colour rich, glossy and true for much longer.',
+    body: [
+      'Fresh colour looks its best in the first couple of weeks, and with a little care you can hold onto that for far longer. Most of what fades colour early comes down to everyday habits, not the colour itself.',
+      'Wash less often, and when you do, use cooler water. Hot water opens the hair cuticle and lets colour rinse away, so a cooler final rinse helps lock it in and adds shine.',
+      'Use products made for coloured hair. The Angel en Provence Orange Flower Colour Protect Mask is one Margo keeps in the studio for exactly this: it feeds coloured hair and helps hold the tone between appointments.',
+      'Protect from heat and sun. Always use a heat protectant before straighteners or a dryer, and remember that strong UV lifts colour just like it lifts a curtain, so a hat on long beach days genuinely helps.',
+      'Book your maintenance in gently. A toner or gloss between full colours keeps everything looking fresh without over-processing your hair. Ask Margo what rhythm suits your colour when you next come in.',
+    ],
+  },
+  {
+    id: 'organic-difference',
+    category: 'Products',
+    date: 'May 2026',
+    title: 'The organic difference, and why Margo uses Angel en Provence',
+    image: '/journal/products.jpg',
+    excerpt: "What 'organic' really means for your hair, and why it is worth having on your shelf at home.",
+    body: [
+      'Margo only puts the Angel en Provence organic range on her clients, and it is a deliberate choice rather than a trend. Good products are half the result, and they matter even more once you leave the chair.',
+      'Organic, plant-based formulas tend to be gentler on your scalp and kinder to colour. Without harsh sulfates stripping the hair, your natural oils and your colour both last longer, and hair generally feels softer over time.',
+      'The range is built around real botanicals: orange flower, lavender, iris root. Each is chosen for a job, whether that is hold, hydration, volume or colour protection, so you are not just buying a nice smell.',
+      'Using the same products at home that Margo uses in the studio keeps your results consistent. You can pick any of them up in the shop here, and if you are not sure what suits your hair, just ask at your appointment.',
+    ],
+  },
+  {
+    id: 'how-often-wash',
+    category: 'Hair care',
+    date: 'April 2026',
+    title: 'How often should you really wash your hair?',
+    image: '/journal/care.jpg',
+    excerpt: 'The honest answer is: less than you think. Here is how to find your hair’s natural rhythm.',
+    body: [
+      'It is one of the questions Margo hears most, and the honest answer is that there is no single number. It depends on your hair type, your scalp and your lifestyle, and part of good hair care is learning to read your own hair.',
+      'Washing every day is rarely necessary and often works against you. Over-washing strips the natural oils that keep hair soft and protected, which can leave your scalp producing even more oil to compensate.',
+      'As a rough guide, most people do well washing two to three times a week. Finer hair may need it a little more often; curly and coloured hair usually prefer less, since those oils are precious for moisture and shine.',
+      'Look after the scalp, not just the lengths. A healthy scalp is where healthy hair starts, so focus your shampoo there and let the conditioner or treatment look after the ends.',
+      'Use dry shampoo sparingly to stretch the days between washes, and if you are unsure what your hair actually needs, mention it next time you are in. Margo is always happy to talk you through it.',
+    ],
+  },
 ]
 
 // Real reviews from Margo's Google listing (4.9 stars, verbatim, lightly tidied).
@@ -67,6 +151,7 @@ export default function App() {
   const [cart, setCart] = useState([]) // [{id, qty}]
   const [cartOpen, setCartOpen] = useState(false)
   const [checkout, setCheckout] = useState(null) // null | 'methods' | 'success'
+  const [article, setArticle] = useState(null) // open journal article
   const [active, setActive] = useState('') // current section for nav underline
   const navListRef = useRef(null)
   const [uline, setUline] = useState({ left: 0, width: 0, show: false }) // sliding underline
@@ -81,7 +166,7 @@ export default function App() {
   // Scroll-spy (position based): the underline follows whichever section crosses
   // the reference line, and clears entirely on the hero (above the first section).
   useEffect(() => {
-    const ids = ['services', 'shop', 'about', 'visit']
+    const ids = ['services', 'shop', 'about', 'journal', 'visit']
     const compute = () => {
       const line = window.innerHeight * 0.42
       let current = ''
@@ -136,7 +221,7 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const lockScroll = menuOpen || cartOpen || !!checkout
+  const lockScroll = menuOpen || cartOpen || !!checkout || !!article
   useEffect(() => {
     document.body.style.overflow = lockScroll ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -186,7 +271,7 @@ export default function App() {
           <span className="nav-brand-text">Margo</span>
         </a>
         <ul className="nav-links" ref={navListRef}>
-          {[['services', 'Services'], ['shop', 'Shop'], ['about', 'About'], ['visit', 'Visit']].map(([id, label]) => (
+          {[['services', 'Services'], ['shop', 'Shop'], ['about', 'About'], ['journal', 'Blog'], ['visit', 'Visit']].map(([id, label]) => (
             <li key={id}>
               <a
                 href={`#${id}`}
@@ -221,6 +306,7 @@ export default function App() {
           <li><a href="#services" onClick={closeMenu}>Services</a></li>
           <li><a href="#shop" onClick={closeMenu}>Shop</a></li>
           <li><a href="#about" onClick={closeMenu}>About</a></li>
+          <li><a href="#journal" onClick={closeMenu}>Blog</a></li>
           <li><a href="#visit" onClick={closeMenu}>Visit</a></li>
         </ul>
         <a href={PHONE_TEL} className="btn btn-primary mobile-menu-cta" onClick={closeMenu}>
@@ -408,12 +494,69 @@ export default function App() {
                 men's cuts, all done with care for the condition of your hair and a warm chat
                 while she works. Only the organic Angel en Provence range touches your hair.
               </p>
+              <p>
+                Margo treats every appointment as a chance to teach, not just to cut. Forever a
+                student of hair herself, she is always learning and happy to share what she knows,
+                so you leave understanding your hair a little better each time.
+              </p>
               <blockquote>
                 "I want you to walk out feeling like yourself, only better,
                 with hair that is easy to live with."
               </blockquote>
             </Reveal>
             <Reveal className="practitioner-image" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      {/* MARGO'S PROMISE */}
+      <section className="philosophy">
+        <div className="section philosophy-inner">
+          <Reveal>
+            <Scissors size={22} className="philosophy-icon" />
+            <div className="eyebrow">Margo's promise</div>
+            <p className="philosophy-statement">
+              Great hair is not just what happens in the chair. Your cut and colour are shaped
+              to work with your natural base, your texture, how much upkeep you want and the look
+              you love. The real difference is what you do at home, and that takes knowledge. So
+              Margo is committed to teaching, not just styling: she explains the how and the why,
+              and gives you honest advice on the products and tools that genuinely help, so you
+              leave with the confidence to keep your hair looking its best between visits.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* BLOG / HAIR EDUCATION */}
+      <section id="journal" className="journal">
+        <div className="section">
+          <div className="section-head">
+            <Reveal>
+              <div className="eyebrow" style={{ marginBottom: '1rem' }}>The Blog</div>
+              <h2>Learn a little<br/>about your hair.</h2>
+            </Reveal>
+            <Reveal as="p">
+              A few honest notes to help you understand your hair and keep it looking its
+              best between visits.
+            </Reveal>
+          </div>
+
+          <div className="journal-grid">
+            {JOURNAL.map((post) => (
+              <Reveal key={post.id} className="journal-card" onClick={() => setArticle(post)} role="button" tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter') setArticle(post) }}>
+                <div className="journal-media">
+                  <img src={post.thumb || post.image} alt={post.title} loading="lazy" />
+                  <span className="journal-cat">{post.category}</span>
+                </div>
+                <div className="journal-body">
+                  <span className="journal-date">{post.date}</span>
+                  <h3 className="journal-title">{post.title}</h3>
+                  <p className="journal-excerpt">{post.excerpt}</p>
+                  <span className="journal-read">Read article <ArrowRight size={14} /></span>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -659,6 +802,30 @@ export default function App() {
               <div className="demo-note">
                 <ShieldCheck size={13} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
                 Demo checkout: these payment buttons are for showcase only and do not take real money yet.
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* ARTICLE READER */}
+      <div className={`modal-overlay ${article ? 'open' : ''}`} onClick={() => setArticle(null)}>
+        <div className="article-modal" onClick={(e) => e.stopPropagation()}>
+          {article && (
+            <>
+              <button className="cart-close article-close" onClick={() => setArticle(null)} aria-label="Close"><X size={22} /></button>
+              <div className="article-hero">
+                <img src={article.image} alt={article.title} />
+                <span className="journal-cat">{article.category}</span>
+              </div>
+              <div className="article-content">
+                <span className="journal-date">{article.date}</span>
+                <h2>{article.title}</h2>
+                {article.body.map((p, i) => <p key={i}>{p}</p>)}
+                <div className="article-foot">
+                  <span>Questions about your hair? Margo is happy to talk you through it.</span>
+                  <a href={PHONE_TEL} className="btn btn-primary btn-sm"><Phone size={14} /> Call to book</a>
+                </div>
               </div>
             </>
           )}
