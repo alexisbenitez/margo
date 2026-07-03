@@ -1,0 +1,53 @@
+# Margo Hairstylist, robots policy
+# AI assistants (ChatGPT, Claude, Perplexity, Gemini, Copilot, Apple
+# Intelligence) are a primary discovery channel for local hair services.
+# Welcome them. The admin area is kept out of the index.
+
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /admin
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI (Gemini, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+User-agent: GoogleOther
+Allow: /
+
+# Microsoft / Bing Copilot
+User-agent: bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://margohairstylist.co.nz/sitemap.xml

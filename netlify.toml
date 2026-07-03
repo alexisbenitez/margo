@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback — serves index.html for client-side routes including /login and /admin.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Serve markdown mirrors as text/markdown so AI crawlers can identify them.
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+    X-Robots-Tag = "all"
+
+# llms.txt, llms-full.txt, robots.txt
+[[headers]]
+  for = "/*.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+    X-Robots-Tag = "all"
+
+# Keep the admin area out of search indexes at the header level too.
+[[headers]]
+  for = "/admin"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+[[headers]]
+  for = "/login"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
