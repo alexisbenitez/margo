@@ -22,10 +22,10 @@ const MAPS_URL =
 
 const SERVICES = [
   { name: 'Cuts & Styling', desc: 'Women, men and kids. A cut shaped to suit you and to sit well as it grows out, finished with a proper blow wave.' },
-  { name: 'Colour', desc: 'Full colour, root touch-ups, foils and balayage, always weighed against the health of your hair.' },
-  { name: 'Keratin & Straightening', desc: 'Smoothing and keratin treatments that leave frizz behind and make everyday hair far more manageable.' },
+  { name: 'Colour', desc: 'Full colour, root touch-ups, foils and balayage using professional Wella colour, always weighed against the health of your hair.' },
+  { name: 'Nanoplastia, Keratin & Straightening', desc: 'Nanoplastia, keratin and straightening treatments that leave frizz behind and make everyday hair far more manageable.' },
   { name: 'Curly Hair', desc: 'Curl-literate cutting and styling that works with your natural pattern instead of fighting it.' },
-  { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves using the Angel en Provence organic range.' },
+  { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves to finish, using professional, organic and cruelty-free products.' },
 ]
 
 // Hair education articles. Genuine, helpful content in Margo's education-first
@@ -45,7 +45,7 @@ const JOURNAL = [
       'A younger, healthier strand tends to have a thick diameter, a smooth cuticle layer, plenty of stretch and good moisture retention. Over the years that can shift: the diameter thins, the cuticle weakens and lifts, elasticity drops so hair breaks more easily, it holds less moisture, and the surface becomes rougher, which creates more friction and more damage.',
       'The reason is simple once you look closely. Hair naturally loses some of its protein, lipids and internal moisture support as we age, and every strand becomes a little more vulnerable to the things we do to it: heat, colour, sun and rough brushing.',
       'The good news is that most of this is manageable. The aim is to protect what you have and support the strand rather than strip it. That means gentler, sulfate-free washing, keeping heat tools in check with a proper heat protectant, and feeding the hair with rich moisture and a little protein to keep it strong and elastic.',
-      'This is exactly why Margo leans on the organic Angel en Provence range and treatments like keratin smoothing. They work with the hair rather than against it, smoothing the cuticle and putting moisture and structure back in. Looking after the scalp matters too, since that is where every new, healthy strand begins.',
+      'This is exactly why Margo leans on professional, organic products and treatments like keratin smoothing. They work with the hair rather than against it, smoothing the cuticle and putting moisture and structure back in. Looking after the scalp matters too, since that is where every new, healthy strand begins.',
       'None of this is about chasing your twenty-year-old hair. It is about understanding how your hair is changing so you can care for the hair you have now, and keep it looking healthy, soft and full of life. If you are noticing changes, mention it at your next appointment and Margo will build a simple plan with you.',
     ],
   },
@@ -76,7 +76,7 @@ const JOURNAL = [
     body: [
       'Fresh colour looks its best in the first couple of weeks, and with a little care you can hold onto that for far longer. Most of what fades colour early comes down to everyday habits, not the colour itself.',
       'Wash less often, and when you do, use cooler water. Hot water opens the hair cuticle and lets colour rinse away, so a cooler final rinse helps lock it in and adds shine.',
-      'Use products made for coloured hair. The Angel en Provence Orange Flower Colour Protect Mask is one Margo keeps in the studio for exactly this: it feeds coloured hair and helps hold the tone between appointments.',
+      'Use products made for coloured hair. A good colour-protect mask is one Margo keeps in the studio for exactly this: it feeds coloured hair and helps hold the tone between appointments.',
       'Protect from heat and sun. Always use a heat protectant before straighteners or a dryer, and remember that strong UV lifts colour just like it lifts a curtain, so a hat on long beach days genuinely helps.',
       'Book your maintenance in gently. A toner or gloss between full colours keeps everything looking fresh without over-processing your hair. Ask Margo what rhythm suits your colour when you next come in.',
     ],
@@ -85,11 +85,11 @@ const JOURNAL = [
     id: 'organic-difference',
     category: 'Products',
     date: 'May 2026',
-    title: 'The organic difference, and why Margo uses Angel en Provence',
+    title: 'The organic difference, and why the products matter',
     image: '/journal/products.jpg',
     excerpt: "What 'organic' really means for your hair, and why it is worth having on your shelf at home.",
     body: [
-      'Margo only puts the Angel en Provence organic range on her clients, and it is a deliberate choice rather than a trend. Good products are half the result, and they matter even more once you leave the chair.',
+      'Margo only puts professional, organic and cruelty-free products on her clients, and it is a deliberate choice rather than a trend. Good products are half the result, and they matter even more once you leave the chair.',
       'Organic, plant-based formulas tend to be gentler on your scalp and kinder to colour. Without harsh sulfates stripping the hair, your natural oils and your colour both last longer, and hair generally feels softer over time.',
       'The range is built around real botanicals: orange flower, lavender, iris root. Each is chosen for a job, whether that is hold, hydration, volume or colour protection, so you are not just buying a nice smell.',
       'Using the same products at home that Margo uses in the studio keeps your results consistent. You can pick any of them up in the shop here, and if you are not sure what suits your hair, just ask at your appointment.',
@@ -356,8 +356,8 @@ export default function App() {
               <div className="val">Snells Beach</div>
             </div>
             <div className="hero-meta-item">
-              <div className="lbl">By appointment</div>
-              <div className="val">Mon - Sat</div>
+              <div className="lbl">Open</div>
+              <div className="val">Mon to Sat</div>
             </div>
             <div className="hero-meta-item">
               <div className="lbl">Rated on Google</div>
@@ -413,8 +413,8 @@ export default function App() {
               <h2>What Margo<br/>does.</h2>
             </Reveal>
             <Reveal as="p">
-              Everything is by appointment in the Snells Beach studio. New to Margo? Just mention
-              what you are after when you book and she will talk you through it.
+              Cuts, styling, colour and more, from the Snells Beach studio. New to Margo? Just
+              mention what you are after when you get in touch and she will talk you through it.
             </Reveal>
           </div>
 
@@ -441,11 +441,12 @@ export default function App() {
           <div className="section-head">
             <Reveal>
               <div className="eyebrow" style={{ marginBottom: '1rem' }}>The Shop</div>
-              <h2>Take the salon<br/>home with you.</h2>
+              <h2>Take the care<br/>home with you.</h2>
             </Reveal>
             <Reveal as="p">
-              The same Angel en Provence organic range Margo uses in the studio, available to buy.
-              Add to your cart and check out online, or just ask about anything at your next appointment.
+              The professional, organic and cruelty-free products Margo trusts in the studio, from
+              names like Angel, Brelil, De Lorenzo, Paul Mitchell and Wella. Add to your cart and
+              check out online, or just ask about anything at your next visit.
             </Reveal>
           </div>
 
@@ -492,7 +493,7 @@ export default function App() {
               <p>
                 She is known for reading hair well: curls, colour, keratin smoothing and clean
                 men's cuts, all done with care for the condition of your hair and a warm chat
-                while she works. Only the organic Angel en Provence range touches your hair.
+                while she works. She works only with professional, organic and cruelty-free products.
               </p>
               <p>
                 Margo treats every appointment as a chance to teach, not just to cut. Forever a
@@ -603,8 +604,8 @@ export default function App() {
               <h2>Book your<br/>appointment.</h2>
             </Reveal>
             <Reveal as="p">
-              Margo works by appointment only from her Snells Beach studio. Give her a call or a
-              text and she will find you a time and note you into the book.
+              Margo works from her Snells Beach studio. Call or text to book a time, or pop in
+              during opening hours.
             </Reveal>
           </div>
 
@@ -638,7 +639,8 @@ export default function App() {
             <Reveal className="contact-card">
               <h3><Clock size={18} style={{ marginRight: 10, verticalAlign: 'middle', color: 'var(--terracotta)' }}/>Hours</h3>
               <ul className="hours-list">
-                <li><span>Monday - Saturday</span><span>By appointment</span></li>
+                <li><span>Monday - Friday</span><span>9am to 5pm</span></li>
+                <li><span>Saturday</span><span>9am to 1pm</span></li>
                 <li><span>Sunday</span><span>Closed</span></li>
               </ul>
               <div style={{ display: 'flex', gap: '0.7rem', marginTop: 'auto', marginBottom: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>

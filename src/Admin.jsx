@@ -3,7 +3,7 @@ import { Plus, Pencil, Trash2, LogOut, RotateCcw, Check, X, Upload } from 'lucid
 import { loadProducts, saveProducts, resetProducts, slugId, money } from './products'
 import FooterOwl from './components/FooterOwl'
 
-const EMPTY = { id: '', name: '', brand: 'Angel en Provence', note: '', price: '', image: '', inStock: true }
+const EMPTY = { id: '', name: '', brand: '', note: '', price: '', image: '', inStock: true }
 
 export default function Admin() {
   const [authed, setAuthed] = useState(false)
@@ -138,7 +138,7 @@ export default function Admin() {
               </div>
               <div className="field">
                 <label>Brand</label>
-                <input value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} placeholder="Angel en Provence" />
+                <input value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} placeholder="Wella, Brelil, De Lorenzo..." />
               </div>
               <div className="field">
                 <label>Price (NZD)</label>

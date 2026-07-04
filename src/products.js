@@ -6,17 +6,17 @@
 // visible to every visitor (shared across devices), swap loadProducts/saveProducts
 // for a Supabase table read/write — the rest of the app stays identical.
 
-const KEY = 'margo_products_v1'
+const KEY = 'margo_products_v2'
 const EVENT = 'margo-products-changed'
 
-// Real stock, photographed from Margo's own Google listing. Brand: Angel en
-// Provence (organic hair care) — the line she carries in the salon. Prices in NZD
-// are sensible starting points; Margo can change any of them in the admin panel.
+// Seed stock (Margo will replace photos and products). She carries several
+// professional, organic and cruelty-free brands (Angel, Brelil, De Lorenzo,
+// Paul Mitchell, Wella). Prices in NZD are starting points, editable in admin.
 export const SEED = [
   {
     id: 'orange-flower-finishing-spray',
     name: 'Orange Flower Finishing Spray',
-    brand: 'Angel en Provence',
+    brand: '',
     note: 'Ultra-firm hold finishing spray, 350ml. Organic orange flower for a strong, brushable hold.',
     price: 34,
     image: '/products/angel-orange-flower-finishing-spray.jpg',
@@ -25,7 +25,7 @@ export const SEED = [
   {
     id: 'iris-styling-hairspray',
     name: 'Iris Styling Hairspray',
-    brand: 'Angel en Provence',
+    brand: '',
     note: 'Organic iris root styling spray. Flexible hold with shine, no crunch.',
     price: 32,
     image: '/products/angel-iris-styling-hairspray.jpg',
@@ -34,7 +34,7 @@ export const SEED = [
   {
     id: 'flower-conditioning-mousse',
     name: 'Flower Conditioning Mousse',
-    brand: 'Angel en Provence',
+    brand: '',
     note: 'Protective conditioning mousse with bitter orange flower. Body and softness for all hair types.',
     price: 33,
     image: '/products/angel-flower-conditioning-mousse.jpg',
@@ -43,7 +43,7 @@ export const SEED = [
   {
     id: 'lavender-full-shampoo',
     name: 'Lavender Full Energetic Shampoo',
-    brand: 'Angel en Provence',
+    brand: '',
     note: 'For fine and limp hair. Lavender, grapefruit and rosemary leaf for volume and strength. Salon 1L.',
     price: 58,
     image: '/products/angel-lavender-full-shampoo.jpg',
@@ -52,7 +52,7 @@ export const SEED = [
   {
     id: 'iris-restorative-shampoo',
     name: 'Iris Restorative Shampoo',
-    brand: 'Angel en Provence',
+    brand: '',
     note: 'For all hair types. Iris florentina root to reconstruct and hydrate. Salon 1L.',
     price: 58,
     image: '/products/angel-iris-restorative-shampoo.jpg',
@@ -61,7 +61,7 @@ export const SEED = [
   {
     id: 'orange-flower-colour-mask',
     name: 'Orange Flower Colour Protect Hair Mask',
-    brand: 'Angel en Provence',
+    brand: '',
     note: 'For coloured hair. Rich orange flower mask that holds colour and restores softness.',
     price: 42,
     image: '/products/angel-orange-flower-colour-mask.jpg',
@@ -69,9 +69,9 @@ export const SEED = [
   },
   {
     id: 'angel-gift-set',
-    name: 'Angel en Provence Gift Set',
-    brand: 'Angel en Provence',
-    note: 'Boxed gift set of Angel en Provence favourites. A lovely present for someone who loves their hair.',
+    name: 'Gift Set',
+    brand: '',
+    note: 'Boxed gift set of salon favourites. A lovely present for someone who loves their hair.',
     price: 75,
     image: '/products/angel-gift-sets-shelf.jpg',
     inStock: true,
