@@ -51,7 +51,6 @@ export default function LoadingScreen({ onDone }) {
         pointerEvents: hidden ? 'none' : 'all',
       }}
     >
-      <img src="/margo-logo.png" alt="Margo" className="load-logo" />
 
       <div
         style={{

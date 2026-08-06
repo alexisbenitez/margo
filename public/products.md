@@ -1,5 +1,7 @@
-# Shop, Margo Hairstylist
+# Products, Margo Hairstylist
 
-The professional, organic and cruelty-free products Margo trusts in the studio, from brands like Angel, Brelil, De Lorenzo, Paul Mitchell and Wella. Available to buy online or at your appointment.
+The professional hair care Margo uses in the studio and keeps on the shelf: Wella, Paul Mitchell and De Lorenzo.
 
-Add to cart and check out online, or collect and pay at your next visit. Enquiries: 021 202 9441.
+These products are not sold online and are not shipped. Margo shows what she stocks so you know what is available; you pick it up at your appointment, and she will tell you which one actually suits your hair.
+
+To ask whether something is in stock, text or call 021 202 9441.

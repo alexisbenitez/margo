@@ -6,17 +6,17 @@
 // visible to every visitor (shared across devices), swap loadProducts/saveProducts
 // for a Supabase table read/write — the rest of the app stays identical.
 
-const KEY = 'margo_products_v2'
+const KEY = 'margo_products_v4'
 const EVENT = 'margo-products-changed'
 
 // Seed stock (Margo will replace photos and products). She carries several
-// professional, organic and cruelty-free brands (Angel, Brelil, De Lorenzo,
-// Paul Mitchell, Wella). Prices in NZD are starting points, editable in admin.
+// product lines, premium to less premium: Wella, Paul Mitchell, De Lorenzo,
+// Argila, Angel. Prices in NZD are starting points, editable in admin.
 export const SEED = [
   {
     id: 'orange-flower-finishing-spray',
     name: 'Orange Flower Finishing Spray',
-    brand: '',
+    tags: ['Angel'],
     note: 'Ultra-firm hold finishing spray, 350ml. Organic orange flower for a strong, brushable hold.',
     price: 34,
     image: '/products/angel-orange-flower-finishing-spray.jpg',
@@ -25,7 +25,7 @@ export const SEED = [
   {
     id: 'iris-styling-hairspray',
     name: 'Iris Styling Hairspray',
-    brand: '',
+    tags: ['Angel'],
     note: 'Organic iris root styling spray. Flexible hold with shine, no crunch.',
     price: 32,
     image: '/products/angel-iris-styling-hairspray.jpg',
@@ -34,7 +34,7 @@ export const SEED = [
   {
     id: 'flower-conditioning-mousse',
     name: 'Flower Conditioning Mousse',
-    brand: '',
+    tags: ['Angel'],
     note: 'Protective conditioning mousse with bitter orange flower. Body and softness for all hair types.',
     price: 33,
     image: '/products/angel-flower-conditioning-mousse.jpg',
@@ -43,7 +43,7 @@ export const SEED = [
   {
     id: 'lavender-full-shampoo',
     name: 'Lavender Full Energetic Shampoo',
-    brand: '',
+    tags: ['Angel'],
     note: 'For fine and limp hair. Lavender, grapefruit and rosemary leaf for volume and strength. Salon 1L.',
     price: 58,
     image: '/products/angel-lavender-full-shampoo.jpg',
@@ -52,7 +52,7 @@ export const SEED = [
   {
     id: 'iris-restorative-shampoo',
     name: 'Iris Restorative Shampoo',
-    brand: '',
+    tags: ['Angel'],
     note: 'For all hair types. Iris florentina root to reconstruct and hydrate. Salon 1L.',
     price: 58,
     image: '/products/angel-iris-restorative-shampoo.jpg',
@@ -61,7 +61,7 @@ export const SEED = [
   {
     id: 'orange-flower-colour-mask',
     name: 'Orange Flower Colour Protect Hair Mask',
-    brand: '',
+    tags: ['Angel'],
     note: 'For coloured hair. Rich orange flower mask that holds colour and restores softness.',
     price: 42,
     image: '/products/angel-orange-flower-colour-mask.jpg',
@@ -70,7 +70,7 @@ export const SEED = [
   {
     id: 'angel-gift-set',
     name: 'Gift Set',
-    brand: '',
+    tags: ['Angel'],
     note: 'Boxed gift set of salon favourites. A lovely present for someone who loves their hair.',
     price: 75,
     image: '/products/angel-gift-sets-shelf.jpg',
@@ -97,6 +97,26 @@ export function saveProducts(list) {
 
 export function resetProducts() {
   localStorage.removeItem(KEY)
+  window.dispatchEvent(new Event(EVENT))
+}
+
+// ---- Tags / labels (managed by Margo in admin, drive the shop filters) ------
+const TAGS_KEY = 'margo_tags_v1'
+const DEFAULT_TAGS = ['Wella', 'Paul Mitchell', 'De Lorenzo', 'Argila', 'Angel']
+
+export function loadTags() {
+  try {
+    const raw = localStorage.getItem(TAGS_KEY)
+    if (!raw) return DEFAULT_TAGS
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : DEFAULT_TAGS
+  } catch {
+    return DEFAULT_TAGS
+  }
+}
+
+export function saveTags(list) {
+  localStorage.setItem(TAGS_KEY, JSON.stringify(list))
   window.dispatchEvent(new Event(EVENT))
 }
 

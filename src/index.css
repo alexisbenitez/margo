@@ -103,7 +103,7 @@ h1, h2, h3, h4 {
   gap: 0.7rem;
 }
 .nav-brand-mark {
-  width: 46px;
+  width: auto;
   height: 46px;
   object-fit: contain;
   display: block;
@@ -313,10 +313,30 @@ h1, h2, h3, h4 {
     flex-direction: column;
     justify-content: flex-end;
   }
+  /* Margo stands in the right third of the hero photo, so a centred `cover`
+     crop on a narrow screen shows the empty half of the studio and leaves her
+     off-frame entirely. Pull the focal point right so she stays in shot. */
+  .hero::before { background-position: 74% center; }
+  /* Her face sits in the top 45% and the copy in the bottom half, so the scrim
+     stays light over her and only turns solid below her chin. Without this the
+     eyebrow lands on lit skin and disappears. */
   .hero::after {
     background:
-      linear-gradient(180deg, rgba(33, 20, 48,0.55) 0%, rgba(33, 20, 48,0.1) 35%, rgba(33, 20, 48,0.95) 100%);
+      linear-gradient(180deg,
+        rgba(33, 20, 48,0.40) 0%,
+        rgba(33, 20, 48,0.06) 20%,
+        rgba(33, 20, 48,0.52) 46%,
+        rgba(33, 20, 48,0.90) 64%,
+        rgba(33, 20, 48,0.98) 100%);
   }
+  /* Belt and braces: the photo can change, the copy must stay readable anyway. */
+  .hero-text .eyebrow,
+  .hero-title,
+  .hero-sub { text-shadow: 0 1px 14px rgba(20, 10, 30, 0.75); }
+  /* The eyebrow lands on lit skin here, and orchid on warm skin has almost no
+     contrast. Cream reads at any photo; the scissors icon keeps the accent. */
+  .hero-text .eyebrow { color: var(--cream); line-height: 1.7; }
+  .hero-text .eyebrow svg { color: var(--terracotta); }
   .hero-meta {
     border-left: 0; padding-left: 0;
     border-top: 1px solid var(--line);
@@ -511,9 +531,9 @@ h1, h2, h3, h4 {
 }
 
 /* ---------- ANCHORS ---------- */
-#services, #shop, #about, #journal, #visit { scroll-margin-top: 88px; }
+#services, #shop, #about, #journal, #contact { scroll-margin-top: 88px; }
 @media (max-width: 860px) {
-  #services, #shop, #about, #journal, #visit { scroll-margin-top: 74px; }
+  #services, #shop, #about, #journal, #contact { scroll-margin-top: 74px; }
 }
 
 /* ---------- CONTACT ---------- */
@@ -722,12 +742,47 @@ h1, h2, h3, h4 {
   .map-bline-2 { inset: 15px; }
 }
 
+/* ---------- CONTACT (map left, details + CTA right) ---------- */
+.contact-section { background: var(--bg); }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.contact-map .map-ornament { max-width: none; margin: 0; padding: 24px; }
+.contact-map .map-wrap { aspect-ratio: 4 / 3; }
+.contact-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem 1.9rem 2.1rem;
+}
+.contact-panel h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1.3rem; }
+.contact-hours { margin-top: 0.3rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.contact-hours-title {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 0.7rem;
+}
+.contact-hours-title svg { flex-shrink: 0; }
+.contact-cta { display: flex; gap: 0.7rem; margin-top: 1.5rem; flex-wrap: wrap; }
+@media (max-width: 860px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
 /* ---------- FOOTER ---------- */
 .footer {
   border-top: 1px solid var(--line);
   padding: 3rem var(--pad) 2rem;
   text-align: center;
   background: var(--bg);
+}
+.footer-logo {
+  width: auto;
+  height: clamp(84px, 14vw, 116px);
+  display: block;
+  margin: 0 auto 0.9rem;
 }
 .footer-mark {
   font-family: var(--serif);
@@ -992,6 +1047,69 @@ h1, h2, h3, h4 {
 
 /* ---------- SHOP ---------- */
 .shop { background: var(--bg); }
+.shop-toolbar { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+.shop-search {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.7rem 1rem; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+  flex: 1 1 220px; min-width: 190px; max-width: 320px;
+}
+.shop-search svg { color: var(--terracotta); flex-shrink: 0; }
+.shop-search input { border: 0; background: none; color: var(--cream); font-family: var(--sans); font-size: 0.9rem; width: 100%; outline: none; }
+.shop-search input::placeholder { color: var(--cream-soft); opacity: 0.55; }
+.shop-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1 1 auto; }
+.chip {
+  padding: 0.5rem 0.95rem; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent;
+  color: var(--cream-soft); font-family: var(--sans); font-size: 0.78rem;
+  letter-spacing: 0.04em; transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.chip:hover { border-color: var(--terracotta); color: var(--cream); }
+.chip.active { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+.shop-sort {
+  padding: 0.6rem 0.9rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--cream); font-family: var(--sans); font-size: 0.82rem;
+  cursor: pointer; outline: none;
+}
+.shop-clear-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.9rem; border-radius: 999px;
+  border: 1px solid rgba(198,79,160,0.4); background: transparent;
+  color: var(--terracotta); font-family: var(--sans); font-size: 0.76rem;
+  letter-spacing: 0.04em; transition: background 0.25s, border-color 0.25s;
+}
+.shop-clear-btn:hover { background: rgba(198,79,160,0.12); border-color: var(--terracotta); }
+.shop-empty { padding: 3rem 0; text-align: center; color: var(--cream-soft); opacity: 0.82; }
+
+/* admin tag picker / manager */
+.tag-picker { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+.tag-hint { font-size: 0.8rem; color: var(--cream-soft); opacity: 0.6; }
+.tag-new { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag-new input {
+  flex: 1 1 200px; padding: 0.7rem 0.9rem; border-radius: 10px;
+  border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+  color: var(--cream); font-family: var(--sans); font-size: 0.9rem;
+}
+.tag-new input:focus { outline: none; border-color: var(--terracotta); }
+.tag-manage { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.tag-manage-item {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.9rem; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+  color: var(--cream); font-size: 0.82rem;
+}
+.tag-manage-item button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 999px; color: var(--cream-soft);
+}
+.tag-manage-item button:hover { background: rgba(198,79,160,0.15); color: var(--terracotta); }
+.shop-clear { color: var(--terracotta); text-decoration: underline; }
+@media (max-width: 680px) {
+  .shop-toolbar { flex-direction: column; align-items: stretch; }
+  .shop-search { max-width: none; }
+  .shop-sort { width: 100%; }
+}
 .shop-brandline {
   font-family: var(--sans);
   font-size: 0.78rem;
@@ -1326,6 +1444,12 @@ h1, h2, h3, h4 {
 }
 .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--terracotta); }
 .field textarea { resize: vertical; min-height: 70px; }
+.login-remember {
+  display: flex; align-items: center; gap: 0.55rem;
+  text-align: left; font-size: 0.8rem; color: var(--cream-soft);
+  margin: 0 0 1.1rem; cursor: pointer;
+}
+.login-remember input { width: auto; accent-color: var(--terracotta); }
 .login-btn { width: 100%; justify-content: center; margin-top: 0.5rem; }
 .login-error { color: #ff8fb0; font-size: 0.82rem; margin-top: 0.9rem; min-height: 1.1rem; }
 .login-hint { margin-top: 1.4rem; font-size: 0.72rem; color: var(--cream-soft); opacity: 0.5; line-height: 1.5; }
@@ -1444,4 +1568,114 @@ h1, h2, h3, h4 {
   0%   { opacity: 0; transform: translate(0,0) rotate(0deg); }
   18%  { opacity: 0.9; }
   100% { opacity: 0; transform: translate(7px, 18px) rotate(45deg); }
+}
+
+/* ============================================================
+   MARGO — PRODUCTS (reemplaza al shop: se muestra, no se vende)
+   ============================================================ */
+.products { background: var(--bg); }
+
+.brand-row {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  margin: 0 0 4.5rem;
+}
+.brand-chip {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cream-soft);
+  background: var(--surface);
+  transition: border-color 0.4s ease, color 0.4s ease, transform 0.4s cubic-bezier(.2,.7,.2,1);
+}
+.brand-chip:hover { border-color: var(--terracotta); color: var(--cream); transform: translateY(-2px); }
+
+.shelf-group { margin-bottom: 5rem; }
+.shelf-brand {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  margin-bottom: 0.5rem;
+}
+.shelf-blurb {
+  max-width: 60ch;
+  color: var(--cream-soft);
+  opacity: 0.8;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+.shelf-grid.single { grid-template-columns: minmax(0, 720px); }
+
+.shelf-card { display: flex; flex-direction: column; gap: 0.7rem; }
+.shelf-media {
+  display: block; width: 100%; padding: 0; border: 0;
+  border-radius: 14px; overflow: hidden; cursor: zoom-in;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  aspect-ratio: 16 / 9;
+}
+.shelf-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.shelf-media:hover img { transform: scale(1.05); }
+.shelf-label {
+  font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.products-cta {
+  border-top: 1px solid var(--line);
+  padding-top: 3.5rem;
+  text-align: center;
+}
+.products-cta h3 { font-family: var(--serif); font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin-bottom: 0.7rem; }
+.products-cta p { max-width: 52ch; margin: 0 auto 2rem; color: var(--cream-soft); opacity: 0.8; line-height: 1.7; }
+.products-cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+/* Lightbox: la foto grande, y desde ahi mismo se puede preguntar por SMS. */
+.shelf-lightbox {
+  position: fixed; inset: 0; z-index: 120;
+  display: grid; place-items: center; padding: var(--pad);
+  background: rgba(15, 8, 22, 0.92);
+  backdrop-filter: blur(10px);
+  animation: shelf-fade 0.35s ease both;
+}
+@keyframes shelf-fade { from { opacity: 0 } to { opacity: 1 } }
+.shelf-lightbox figure {
+  max-width: min(1100px, 100%);
+  animation: shelf-rise 0.45s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes shelf-rise { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+.shelf-lightbox img {
+  width: 100%; height: auto; display: block;
+  max-height: 74svh; object-fit: contain;
+  border-radius: 14px;
+}
+.shelf-lightbox figcaption {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.2rem; flex-wrap: wrap;
+  margin-top: 1.1rem;
+  font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cream-soft);
+}
+.shelf-lightbox-close {
+  position: absolute; top: 1.4rem; right: 1.4rem;
+  background: none; border: 1px solid var(--line); color: var(--cream);
+  padding: 0.5rem 1.1rem; border-radius: 999px; cursor: pointer;
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+.shelf-lightbox-close:hover { border-color: var(--terracotta); background: var(--surface); }
+
+@media (max-width: 720px) {
+  .brand-row { margin-bottom: 3rem; }
+  .shelf-group { margin-bottom: 3.5rem; }
+  .products-cta-actions .btn { width: 100%; justify-content: center; }
 }

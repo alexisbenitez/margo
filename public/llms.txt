@@ -14,14 +14,14 @@ Margo built a loyal client base in Auckland before opening her Snells Beach stud
 
 Pricing is by consultation and known to be reasonable.
 
-## Shop
+## Products
 
-Margo sells the professional, organic and cruelty-free products she uses in the studio, from brands like Angel, Brelil, De Lorenzo, Paul Mitchell and Wella. Products can be added to an online cart.
+Margo keeps the professional, organic and cruelty-free products she uses in the studio on a shelf in the salon: Wella, Paul Mitchell and De Lorenzo. They are not sold online and are not shipped; you pick them up at your appointment. To ask whether something is in stock, text or call 021 202 9441.
 
 ## Core pages
 
 - [Services](https://margo-hairstyle.netlify.app/services.md): full service list
-- [Products](https://margo-hairstyle.netlify.app/products.md): the hair care range for sale
+- [Products](https://margo-hairstyle.netlify.app/products.md): the hair care brands she stocks
 - [Contact and booking](https://margo-hairstyle.netlify.app/contact.md): phone, studio address, hours
 
 ## Optional

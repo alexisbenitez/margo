@@ -1,13 +1,16 @@
 import { useEffect, useState, useRef } from 'react'
 import { Plus, Pencil, Trash2, LogOut, RotateCcw, Check, X, Upload } from 'lucide-react'
-import { loadProducts, saveProducts, resetProducts, slugId, money } from './products'
+import { loadProducts, saveProducts, resetProducts, slugId, money, loadTags, saveTags } from './products'
 import FooterOwl from './components/FooterOwl'
+import { isAdmin, signOutAdmin } from './shared'
 
-const EMPTY = { id: '', name: '', brand: '', note: '', price: '', image: '', inStock: true }
+const EMPTY = { id: '', name: '', tags: [], note: '', price: '', image: '', inStock: true }
 
 export default function Admin() {
   const [authed, setAuthed] = useState(false)
   const [products, setProducts] = useState([])
+  const [tagList, setTagList] = useState([])
+  const [newTag, setNewTag] = useState('')
   const [form, setForm] = useState(EMPTY)
   const [editingId, setEditingId] = useState(null)
   const [toast, setToast] = useState('')
@@ -17,12 +20,13 @@ export default function Admin() {
 
   useEffect(() => {
     document.title = 'Admin · Margo'
-    if (sessionStorage.getItem('margo_admin') !== '1') {
+    if (!isAdmin()) {
       window.location.href = '/login'
       return
     }
     setAuthed(true)
     setProducts(loadProducts())
+    setTagList(loadTags())
   }, [])
 
   const flash = (msg) => {
@@ -35,6 +39,40 @@ export default function Admin() {
     setProducts(list)
     saveProducts(list)
   }
+  const persistTags = (list) => {
+    setTagList(list)
+    saveTags(list)
+  }
+
+  // ---- Tag management ----
+  const toggleFormTag = (t) => setForm((f) => {
+    const has = (f.tags || []).includes(t)
+    return { ...f, tags: has ? f.tags.filter((x) => x !== t) : [...(f.tags || []), t] }
+  })
+  const createTag = () => {
+    const t = newTag.trim()
+    if (!t) return
+    if (!tagList.includes(t)) persistTags([...tagList, t])
+    setForm((f) => ({ ...f, tags: (f.tags || []).includes(t) ? f.tags : [...(f.tags || []), t] }))
+    setNewTag('')
+  }
+  const deleteTag = (t) => {
+    if (!window.confirm(`Delete the tag "${t}"? It will be removed from all products.`)) return
+    persistTags(tagList.filter((x) => x !== t))
+    persist(products.map((p) => ({ ...p, tags: (p.tags || []).filter((x) => x !== t) })))
+    setForm((f) => ({ ...f, tags: (f.tags || []).filter((x) => x !== t) }))
+    flash('Tag deleted.')
+  }
+  const renameTag = (t) => {
+    const nn = window.prompt('Rename tag', t)
+    if (!nn) return
+    const nt = nn.trim()
+    if (!nt || nt === t) return
+    persistTags(tagList.map((x) => (x === t ? nt : x)))
+    persist(products.map((p) => ({ ...p, tags: (p.tags || []).map((x) => (x === t ? nt : x)) })))
+    setForm((f) => ({ ...f, tags: (f.tags || []).map((x) => (x === t ? nt : x)) }))
+    flash('Tag renamed.')
+  }
 
   const startAdd = () => {
     setEditingId(null)
@@ -44,7 +82,7 @@ export default function Admin() {
 
   const startEdit = (p) => {
     setEditingId(p.id)
-    setForm({ ...p, price: String(p.price) })
+    setForm({ ...p, price: String(p.price), tags: p.tags || [] })
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
@@ -67,7 +105,7 @@ export default function Admin() {
     const clean = {
       id: editingId || slugId(form.name),
       name: form.name.trim(),
-      brand: form.brand.trim(),
+      tags: form.tags || [],
       note: form.note.trim(),
       price,
       image: form.image || '/products/angel-gift-sets-shelf.jpg',
@@ -104,7 +142,7 @@ export default function Admin() {
   }
 
   const logout = () => {
-    sessionStorage.removeItem('margo_admin')
+    signOutAdmin()
     window.location.href = '/'
   }
 
@@ -114,7 +152,6 @@ export default function Admin() {
     <div className="admin-shell">
       <div className="admin-topbar">
         <a href="/" className="admin-brand">
-          <img src="/margo-logo.png" alt="" />
           Margo <small>Admin</small>
         </a>
         <div className="admin-actions">
@@ -137,12 +174,26 @@ export default function Admin() {
                 <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="e.g. Iris Restorative Shampoo" />
               </div>
               <div className="field">
-                <label>Brand</label>
-                <input value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} placeholder="Wella, Brelil, De Lorenzo..." />
-              </div>
-              <div className="field">
                 <label>Price (NZD)</label>
                 <input type="number" step="0.01" min="0" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} placeholder="34" />
+              </div>
+              <div className="field span-2">
+                <label>Tags / lines (these drive the shop filters)</label>
+                <div className="tag-picker">
+                  {tagList.map((t) => (
+                    <button type="button" key={t} className={`chip ${(form.tags || []).includes(t) ? 'active' : ''}`} onClick={() => toggleFormTag(t)}>{t}</button>
+                  ))}
+                  {tagList.length === 0 && <span className="tag-hint">No tags yet. Create your first one below.</span>}
+                </div>
+                <div className="tag-new">
+                  <input
+                    value={newTag}
+                    onChange={(e) => setNewTag(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); createTag() } }}
+                    placeholder="New tag, e.g. Shampoo, Colour, Curly"
+                  />
+                  <button type="button" className="btn btn-ghost btn-sm" onClick={createTag}><Plus size={13} /> Add tag</button>
+                </div>
               </div>
               <div className="field span-2">
                 <label>Short description</label>
@@ -181,6 +232,22 @@ export default function Admin() {
           </form>
         </div>
 
+        {/* MANAGE TAGS */}
+        <div className="admin-card">
+          <p className="admin-section-title">Your tags ({tagList.length})</p>
+          <p className="admin-sub" style={{ marginBottom: '1rem' }}>Create tags here and tick them on a product above. Your tags become the filters customers use in the shop.</p>
+          <div className="tag-manage">
+            {tagList.length === 0 && <span className="tag-hint">No tags yet.</span>}
+            {tagList.map((t) => (
+              <span className="tag-manage-item" key={t}>
+                {t}
+                <button title="Rename" onClick={() => renameTag(t)}><Pencil size={12} /></button>
+                <button title="Delete" onClick={() => deleteTag(t)}><X size={13} /></button>
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* LIST */}
         <div className="admin-card">
           <p className="admin-section-title">Live in your shop ({products.length})</p>
@@ -191,7 +258,7 @@ export default function Admin() {
               <div>
                 <div className="admin-prow-name">{p.name}</div>
                 <div className="admin-prow-meta">
-                  {p.brand}{p.brand ? ' · ' : ''}
+                  {(p.tags || []).join(', ')}{(p.tags && p.tags.length) ? ' · ' : ''}
                   <button
                     onClick={() => toggleStock(p)}
                     style={{ color: p.inStock ? 'var(--terracotta)' : 'var(--cream-soft)', textDecoration: 'underline', fontSize: '0.76rem' }}

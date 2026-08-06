@@ -6,3 +6,4 @@ dist-ssr
 .vite
 .netlify
 *.log
+src/Shop.jsx
