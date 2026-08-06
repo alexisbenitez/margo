@@ -98,7 +98,7 @@ export default function App() {
               <h2>Hair that suits<br/>your actual life.</h2>
             </Reveal>
             <Reveal as="p">
-              No conveyor belt, no upsell. Just one stylist who listens, has a good eye,
+              No rush, no upsell. Just one stylist who listens, has a good eye,
               and looks after the health of your hair as much as the look. The kind of place
               people follow across town for.
             </Reveal>
