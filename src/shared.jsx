@@ -170,11 +170,17 @@ export function Nav({ page = 'home' }) {
         </div>
         <button
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          data-nav-toggle
           aria-expanded={menuOpen}
           className={`nav-burger ${menuOpen ? 'is-open' : ''}`}
           onClick={() => setMenuOpen((o) => !o)}
         ><span/><span/><span/></button>
       </nav>
+
+      {/* The nav is fixed, and on home the hero sits underneath it by design.
+          Every other page starts its copy at the top of the document, where the
+          nav lands on top of the first line on phones. This clears it. */}
+      {page !== 'home' && <div className="nav-spacer" aria-hidden="true" />}
 
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`} aria-hidden={!menuOpen}>
         <ul className="mobile-menu-links">

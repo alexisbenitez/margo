@@ -102,6 +102,10 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 0.7rem;
 }
+/* Desktop section padding already clears the nav; only phones fall short. */
+.nav-spacer { height: 0; }
+@media (max-width: 860px) { .nav-spacer { height: 2.75rem; } }
+
 .nav-brand-mark {
   width: auto;
   height: 46px;
