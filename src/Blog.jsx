@@ -3,7 +3,7 @@ import { ArrowRight, X, Phone } from 'lucide-react'
 import { PHONE_TEL, Reveal, useLenis, Nav, SiteFooter } from './shared'
 
 // Hair education articles. Genuine, helpful content in Margo's education-first
-// spirit (she treats every appointment as a chance to teach, not just to cut).
+// spirit: she shares what she knows so clients understand their own hair.
 const JOURNAL = [
   {
     id: 'hair-thins-with-age',
@@ -18,7 +18,7 @@ const JOURNAL = [
       'A younger, healthier strand tends to have a thick diameter, a smooth cuticle layer, plenty of stretch and good moisture retention. Over the years that can shift: the diameter thins, the cuticle weakens and lifts, elasticity drops so hair breaks more easily, it holds less moisture, and the surface becomes rougher, which creates more friction and more damage.',
       'The reason is simple once you look closely. Hair naturally loses some of its protein, lipids and internal moisture support as we age, and every strand becomes a little more vulnerable to the things we do to it: heat, colour, sun and rough brushing.',
       'The good news is that most of this is manageable. The aim is to protect what you have and support the strand rather than strip it. That means gentler, sulfate-free washing, keeping heat tools in check with a proper heat protectant, and feeding the hair with rich moisture and a little protein to keep it strong and elastic.',
-      'This is exactly why Margo leans on professional, organic products and treatments like keratin smoothing. They work with the hair rather than against it, smoothing the cuticle and putting moisture and structure back in. Looking after the scalp matters too, since that is where every new, healthy strand begins.',
+      'This is exactly why Margo leans on professional products and treatments like keratin smoothing. They work with the hair rather than against it, smoothing the cuticle and putting moisture and structure back in. Looking after the scalp matters too, since that is where every new, healthy strand begins.',
       'None of this is about chasing your twenty-year-old hair. It is about understanding how your hair is changing so you can care for the hair you have now, and keep it looking healthy, soft and full of life. If you are noticing changes, mention it at your next appointment and Margo will build a simple plan with you.',
     ],
   },
@@ -35,7 +35,7 @@ const JOURNAL = [
       'The shaft itself is built in three layers. The cuticle is the outer layer, made of overlapping scale-like cells that protect everything inside and give hair its shine. The cortex is the middle layer and makes up 80 to 90 percent of the hair, holding the keratin protein and the melanin that gives your natural colour, and providing strength and elasticity. Right in the centre is the medulla, a soft core that is not even present in every hair type.',
       'Your hair also grows in cycles, and every strand is at a different stage. Anagen is the active growth phase and can last two to six years. Catagen is a short transition of a few weeks. Telogen is the resting phase, where old hair eventually sheds to make room for new growth. Losing some hairs every day is completely normal; it is just part of the cycle.',
       'The difference between damaged and healthy hair comes down to that cuticle. Healthy hair has a smooth, flat cuticle, so it reflects light, feels soft and resists breakage. Damaged hair has a raised, rough cuticle, which leaves it dry, brittle and prone to split ends.',
-      'Here is the part that connects to everything Margo does in the studio. Hair is made of keratin protein, held in shape by tiny disulfide bonds. Chemical services like colour, keratin smoothing and perms work by gently breaking and then reforming those bonds. Done with knowledge and good products, that is how we reshape and refresh your hair safely.',
+      'Here is the part that connects to everything Margo does in the studio. Hair is made of keratin protein, held in shape by tiny disulfide bonds. Chemical services like colour and keratin smoothing work by gently breaking and then reforming those bonds. Done with knowledge and good products, that is how we reshape and refresh your hair safely.',
       'So good hair care really is simple: cleanse gently with the right shampoo for your hair, condition regularly, nourish with oils or treatments, keep heat in check, and support it from the inside with a good diet and enough water. Healthy hair is, in the end, just well cared-for hair. Ask Margo anything about yours next time you are in the chair.',
     ],
   },
@@ -55,16 +55,16 @@ const JOURNAL = [
     ],
   },
   {
-    id: 'organic-difference',
+    id: 'why-products-matter',
     category: 'Products',
     date: 'May 2026',
-    title: 'The organic difference, and why the products matter',
+    title: 'Why the products actually matter',
     image: '/journal/products.jpg',
-    excerpt: "What 'organic' really means for your hair, and why it is worth having on your shelf at home.",
+    excerpt: "Half the result walks out the door with you. Here is why what you use at home counts.",
     body: [
-      'Margo only puts professional, organic and cruelty-free products on her clients, and it is a deliberate choice rather than a trend. Good products are half the result, and they matter even more once you leave the chair.',
-      'Organic, plant-based formulas tend to be gentler on your scalp and kinder to colour. Without harsh sulfates stripping the hair, your natural oils and your colour both last longer, and hair generally feels softer over time.',
-      'The ranges she uses are built around real botanicals, each chosen for a job, whether that is hold, hydration, volume or colour protection, so you are not just buying a nice smell.',
+      'Margo only puts professional products on her clients, and it is a deliberate choice rather than a habit. Good products are half the result, and they matter even more once you leave the chair.',
+      'Salon formulas tend to be gentler on your scalp and kinder to colour. Without harsh sulfates stripping the hair, your natural oils and your colour both last longer, and hair generally feels softer over time.',
+      'Every range on her shelf is there for a job, whether that is hold, hydration, volume or colour protection, so you are not just buying a nice smell.',
       'Using the same products at home that Margo uses in the studio keeps your results consistent. She keeps them on the shelf in the studio, and if you are not sure what suits your hair, just ask at your appointment.',
     ],
   },
@@ -105,9 +105,9 @@ export default function Blog() {
           <Reveal>
             <div className="eyebrow">The Blog</div>
             <p className="philosophy-statement">
-              Margo is committed to teaching, not just styling: she explains the how and the why,
-              and shares honest advice so you leave with the confidence to keep your hair looking
-              its best between visits. A few notes to help you understand and care for your hair.
+              Margo shares what she knows and gives honest advice, so you leave with the
+              confidence to keep your hair looking its best between visits. A few notes to help
+              you understand and care for your hair.
             </p>
           </Reveal>
         </div>

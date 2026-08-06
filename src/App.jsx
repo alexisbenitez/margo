@@ -10,9 +10,9 @@ import {
 const SERVICES = [
   { name: 'Cuts & Styling', desc: 'Women, men and kids. A cut shaped to suit you and to sit well as it grows out, finished with a proper blow wave.' },
   { name: 'Colour', desc: 'Full colour, root touch-ups, foils and balayage using professional Wella colour, always weighed against the health of your hair.' },
-  { name: 'Smoothing, Straightening & Perms', desc: 'Permanent hair straightening, nanoplastia, keratin, smooth filler and perms. Whether you want the frizz gone for good or the curl put back in, there is a treatment that suits your hair.' },
-  { name: 'Curly Hair', desc: 'Curl-literate cutting and styling that works with your natural pattern instead of fighting it.' },
-  { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves to finish, using professional, organic and cruelty-free products.' },
+  { name: 'Smoothing & Straightening', desc: 'Permanent hair straightening, nanoplastia, keratin and smooth filler. Different ways to leave the frizz behind, chosen for what your hair can actually take.' },
+  { name: 'Curly Hair', desc: 'Cutting and styling that works with your natural curl pattern instead of fighting it.' },
+  { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves to finish, using the professional products Margo trusts.' },
 ]
 
 // Real reviews from Margo's Google listing (4.9 stars, verbatim, lightly tidied).
@@ -55,9 +55,9 @@ export default function App() {
               in a warm <em>little studio.</em>
             </h1>
             <p className="hero-sub">
-              Cuts, colour, curls and keratin by Margo, a qualified hairstylist with a home
-              studio in Snells Beach. Plus the professional products she uses every day, on the
-              shelf for you to take home.
+              Cuts, colour and curls by Margo, a qualified hairstylist with a home studio in
+              Snells Beach. Plus the professional products she uses every day, on the shelf for
+              you to take home.
             </p>
             <div className="hero-actions">
               <a href={PHONE_TEL} className="btn btn-primary"><Phone size={14}/> Call to book</a>
@@ -113,7 +113,7 @@ export default function App() {
             <Reveal className="about-card">
               <span className="num">· 02</span>
               <h3>Genuinely skilled</h3>
-              <p>Curly hair, keratin smoothing, colour and men's cuts, all done fast and accurately, with a real eye for what works.</p>
+              <p>Curly hair, smoothing and straightening, colour and men's cuts, all done fast and accurately, with a real eye for what works.</p>
             </Reveal>
             <Reveal className="about-card">
               <span className="num">· 03</span>
@@ -163,20 +163,18 @@ export default function App() {
               <div className="eyebrow" style={{ marginBottom: '1rem' }}>The Stylist</div>
               <h2>Meet<br/>Margo.</h2>
               <p>
-                Margo trained at Servilles and worked at Rodney Wayne, building a loyal
-                following in Auckland before opening her own home studio in Snells Beach.
+                Margo studied and worked at Servilles, and worked at Rodney Wayne, building a
+                loyal following in Auckland before opening her own home studio in Snells Beach.
                 Clients still travel to see her, which tells you most of what you need to know.
               </p>
               <p>
-                She is known for reading hair well: curls, colour, smoothing and straightening,
-                perms and clean men's cuts, all done with care for the condition of your hair and
-                a warm chat while she works. She works only with professional, organic and
-                cruelty-free products.
+                She is known for reading hair well: curls, colour, smoothing and straightening
+                and classic men's cuts, all done with care for the condition of your hair. She
+                works with products she trusts.
               </p>
               <p>
-                Margo treats every appointment as a chance to teach, not just to cut. Forever a
-                student of hair herself, she is always learning and happy to share what she knows,
-                so you leave understanding your hair a little better each time.
+                Forever a student of hair herself, she is always learning and happy to share what
+                she knows, so you leave understanding your hair a little better each time.
               </p>
               <blockquote>
                 "I want you to walk out feeling like yourself, only better,
@@ -197,10 +195,10 @@ export default function App() {
             <p className="philosophy-statement">
               Great hair is not just what happens in the chair. Your cut and colour are shaped
               to work with your natural base, your texture, how much upkeep you want and the look
-              you love. The real difference is what you do at home, and that takes knowledge. So
-              Margo is committed to teaching, not just styling: she explains the how and the why,
-              and gives you honest advice on the products and tools that genuinely help, so you
-              leave with the confidence to keep your hair looking its best between visits.
+              you love. The real difference is what you do at home, so Margo explains the how and
+              the why as she goes, and gives you honest advice on the products and tools that
+              genuinely help, so you leave with the confidence to keep your hair looking its best
+              between visits.
             </p>
           </Reveal>
         </div>

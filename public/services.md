@@ -4,8 +4,8 @@ Cuts, styling, colour and more, from Margo's Snells Beach studio.
 
 - **Cuts & Styling:** women, men and kids. A cut shaped to suit you and to grow out well, finished with a proper blow wave.
 - **Colour:** full colour, root touch-ups, foils and balayage using professional Wella colour, always mindful of the health of your hair.
-- **Smoothing, Straightening & Perms:** permanent hair straightening, nanoplastia, keratin, smooth filler and perms, whether you want the frizz gone for good or the curl put back in.
-- **Curly Hair:** curl-literate cutting and styling that works with your natural pattern.
-- **Treatments & Blow Waves:** deep hydration treatments and salon blow waves, using professional, organic and cruelty-free products.
+- **Smoothing & Straightening:** permanent hair straightening, nanoplastia, keratin and smooth filler, different ways to leave the frizz behind.
+- **Curly Hair:** cutting and styling that works with your natural curl pattern.
+- **Treatments & Blow Waves:** deep hydration treatments and salon blow waves, using the professional products Margo trusts.
 
 Pricing is friendly and by consultation, so you always know the cost before starting. Call or text 021 202 9441 to book, or pop in during opening hours.
