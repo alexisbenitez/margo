@@ -1683,3 +1683,14 @@ h1, h2, h3, h4 {
   .shelf-group { margin-bottom: 3.5rem; }
   .products-cta-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* Brand with no shelf photo yet: a real line of copy, never an empty tile. */
+.shelf-ask {
+  grid-column: 1 / -1;
+  padding: 1.4rem 1.6rem;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  color: var(--cream-soft);
+  opacity: 0.85;
+}
+.shelf-ask a { color: var(--terracotta); text-underline-offset: 3px; }

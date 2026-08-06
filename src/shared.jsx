@@ -20,10 +20,10 @@ export const smsTo = (body) => `sms:${PHONE_E164}?&body=${encodeURIComponent(bod
 export const SMS_URL = smsTo('Hi Margo, I would like to book an appointment. My name is ')
 export const SMS_PRODUCTS = smsTo('Hi Margo, I would like to ask about a product. ')
 
-// Product lines Margo carries, premium to everyday. Brelil is deliberately out:
-// she only stocks one of its lines for now (confirmed 2026-08-07), so it does not
-// earn a place on the shelf list yet.
-export const BRANDS = ['Wella', 'Paul Mitchell', 'De Lorenzo']
+// Product lines Margo carries. Brelil is deliberately out: she only stocks one of
+// its lines for now (confirmed 2026-08-07). Argila is in and she wants MORE of it
+// on the page ("Aumentar Argila productos", 2026-08-07), pending a shelf photo.
+export const BRANDS = ['Wella', 'Paul Mitchell', 'De Lorenzo', 'Argila']
 
 // ---- Admin auth (client-side, demo-level) -----------------------------------
 // Shared password both Margo and Alexis use. Client-side only: keeps the admin

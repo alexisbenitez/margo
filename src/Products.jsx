@@ -33,6 +33,15 @@ const SHELVES = [
       'Australian-made and plant-based, for dryness and for fine hair that needs body without weight.',
     shots: [{ src: '/products/shelf-de-lorenzo.jpg', label: 'On the shelf' }],
   },
+  // Margo asked on 2026-08-07 for more Argila on the page. She has not sent a
+  // shelf photo of it yet, so the brand is named here and the shots go in as
+  // soon as she does. A brand with no photo still belongs on the list.
+  {
+    brand: 'Argila',
+    blurb:
+      'Clay-based treatments and colour care, for hair that needs putting back together rather than covering up.',
+    shots: [],
+  },
 ]
 
 export default function Products() {
@@ -80,6 +89,12 @@ export default function Products() {
                 <p className="shelf-blurb">{group.blurb}</p>
               </Reveal>
               <div className={`shelf-grid ${group.shots.length === 1 ? 'single' : ''}`}>
+                {group.shots.length === 0 && (
+                  <p className="shelf-ask">
+                    Ask Margo what she has in at the moment.{' '}
+                    <a href={smsTo(`Hi Margo, what ${group.brand} do you have in at the moment? `)}>Text her</a>.
+                  </p>
+                )}
                 {group.shots.map((s) => (
                   <Reveal key={s.src} className="shelf-card">
                     <button

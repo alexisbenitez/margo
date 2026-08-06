@@ -10,7 +10,7 @@ import {
 const SERVICES = [
   { name: 'Cuts & Styling', desc: 'Women, men and kids. A cut shaped to suit you and to sit well as it grows out, finished with a proper blow wave.' },
   { name: 'Colour', desc: 'Full colour, root touch-ups, foils and balayage using professional Wella colour, always weighed against the health of your hair.' },
-  { name: 'Nanoplastia, Keratin & Straightening', desc: 'Nanoplastia, keratin and straightening treatments that leave frizz behind and make everyday hair far more manageable.' },
+  { name: 'Smoothing, Straightening & Perms', desc: 'Permanent hair straightening, nanoplastia, keratin, smooth filler and perms. Whether you want the frizz gone for good or the curl put back in, there is a treatment that suits your hair.' },
   { name: 'Curly Hair', desc: 'Curl-literate cutting and styling that works with your natural pattern instead of fighting it.' },
   { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves to finish, using professional, organic and cruelty-free products.' },
 ]
@@ -163,14 +163,15 @@ export default function App() {
               <div className="eyebrow" style={{ marginBottom: '1rem' }}>The Stylist</div>
               <h2>Meet<br/>Margo.</h2>
               <p>
-                Margo is a qualified hairstylist who built a loyal following in Auckland before
-                opening her own home studio in Snells Beach. Clients still travel to see her,
-                which tells you most of what you need to know.
+                Margo trained at Servilles and worked at Rodney Wayne, building a loyal
+                following in Auckland before opening her own home studio in Snells Beach.
+                Clients still travel to see her, which tells you most of what you need to know.
               </p>
               <p>
-                She is known for reading hair well: curls, colour, keratin smoothing and clean
-                men's cuts, all done with care for the condition of your hair and a warm chat
-                while she works. She works only with professional, organic and cruelty-free products.
+                She is known for reading hair well: curls, colour, smoothing and straightening,
+                perms and clean men's cuts, all done with care for the condition of your hair and
+                a warm chat while she works. She works only with professional, organic and
+                cruelty-free products.
               </p>
               <p>
                 Margo treats every appointment as a chance to teach, not just to cut. Forever a
