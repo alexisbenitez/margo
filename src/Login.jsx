@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <div className="login-shell">
       <form className="login-card" onSubmit={submit}>
-        <div className="login-eyebrow">Salon Admin</div>
+        <div className="login-eyebrow">Studio Admin</div>
         <h1>Welcome back</h1>
         <p style={{ color: 'var(--cream-soft)', opacity: 0.7, fontSize: '0.85rem', margin: '0.2rem 0 1.6rem' }}>
           Sign in to manage your shop products.

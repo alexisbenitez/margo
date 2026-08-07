@@ -63,7 +63,7 @@ const JOURNAL = [
     excerpt: "Half the result walks out the door with you. Here is why what you use at home counts.",
     body: [
       'Margo only puts professional products on her clients, and it is a deliberate choice rather than a habit. Good products are half the result, and they matter even more once you leave the chair.',
-      'Salon formulas tend to be gentler on your scalp and kinder to colour. Without harsh sulfates stripping the hair, your natural oils and your colour both last longer, and hair generally feels softer over time.',
+      'Professional formulas tend to be gentler on your scalp and kinder to colour. Without harsh sulfates stripping the hair, your natural oils and your colour both last longer, and hair generally feels softer over time.',
       'Every range on her shelf is there for a job, whether that is hold, hydration, volume or colour protection, so you are not just buying a nice smell.',
       'Using the same products at home that Margo uses in the studio keeps your results consistent. She keeps them on the shelf in the studio, and if you are not sure what suits your hair, just ask at your appointment.',
     ],

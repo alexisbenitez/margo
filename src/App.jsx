@@ -12,7 +12,7 @@ const SERVICES = [
   { name: 'Colour', desc: 'Full colour, root touch-ups, foils and balayage using professional Wella colour, always weighed against the health of your hair.' },
   { name: 'Smoothing & Straightening', desc: 'Permanent hair straightening, nanoplastia, keratin and smooth filler. Different ways to leave the frizz behind, chosen for what your hair can actually take.' },
   { name: 'Curly Hair', desc: 'Cutting and styling that works with your natural curl pattern instead of fighting it.' },
-  { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and salon blow waves to finish, using the professional products Margo trusts.' },
+  { name: 'Treatments & Blow Waves', desc: 'Deep hydration treatments and professional blow waves to finish, using the products Margo trusts.' },
 ]
 
 // Real reviews from Margo's Google listing (4.9 stars, verbatim, lightly tidied).
@@ -51,8 +51,8 @@ export default function App() {
               Qualified Hairstylist · Snells Beach
             </div>
             <h1 className="hero-title">
-              Salon-quality hair,<br/>
-              <em>without the rush.</em>
+              A studio, not a salon.<br/>
+              <em>And hair that shows it.</em>
             </h1>
             <p className="hero-sub">
               Cuts, colour and curls by Margo, a qualified hairstylist with a home studio in
