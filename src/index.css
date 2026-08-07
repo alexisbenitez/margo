@@ -613,6 +613,15 @@ h1, h2, h3, h4 {
 }
 .hours-list li:first-child { border-top: 0; }
 .hours-list li span:last-child { color: var(--cream-soft); opacity: 0.75; }
+.hours-note {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--cream-soft);
+  opacity: 0.7;
+}
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
@@ -1694,3 +1703,38 @@ h1, h2, h3, h4 {
   opacity: 0.85;
 }
 .shelf-ask a { color: var(--terracotta); text-underline-offset: 3px; }
+
+/* La estanteria completa: retrato alto al lado del texto, que es como se lee mejor. */
+.shelf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  margin-bottom: 5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--line);
+}
+.shelf-hero-media {
+  display: block; width: 100%; padding: 0; cursor: zoom-in;
+  border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  background: var(--surface);
+}
+.shelf-hero-media img {
+  width: 100%; height: auto; display: block;
+  transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.shelf-hero-media:hover img { transform: scale(1.03); }
+.shelf-hero-copy h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  margin-bottom: 0.9rem;
+}
+.shelf-hero-copy p {
+  color: var(--cream-soft); opacity: 0.82; line-height: 1.75;
+  max-width: 46ch; margin-bottom: 1.6rem;
+}
+/* Los frascos altos se recortan feo en 16:9, van en vertical. */
+.shelf-media.portrait { aspect-ratio: 3 / 4; }
+@media (max-width: 860px) {
+  .shelf-hero { grid-template-columns: 1fr; margin-bottom: 3rem; padding-bottom: 2.5rem; }
+}

@@ -52,7 +52,7 @@ export default function App() {
             </div>
             <h1 className="hero-title">
               Salon-quality hair,<br/>
-              in a warm <em>little studio.</em>
+              <em>without the rush.</em>
             </h1>
             <p className="hero-sub">
               Cuts, colour and curls by Margo, a qualified hairstylist with a home studio in
@@ -319,6 +319,10 @@ export default function App() {
                     <li><span>Saturday</span><span>9am to 1pm</span></li>
                     <li><span>Sunday</span><span>Closed</span></li>
                   </ul>
+                  {/* The public holidays Margo closes for, given by her 2026-08-07. */}
+                  <p className="hours-note">
+                    Closed on Christmas, Good Friday, Labour Day and 21 November.
+                  </p>
                 </div>
                 <div className="contact-cta">
                   <a href={PHONE_TEL} className="btn btn-primary"><Phone size={14}/> Call to book</a>

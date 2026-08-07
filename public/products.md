@@ -1,6 +1,6 @@
 # Products, Margo Hairstylist
 
-The professional hair care Margo uses in the studio and keeps on the shelf: Wella, Paul Mitchell, De Lorenzo and Argila.
+The professional hair care Margo uses in the studio and keeps on the shelf: Wella, Paul Mitchell, De Lorenzo, Argila and Angel.
 
 These products are not sold online and are not shipped. Margo shows what she stocks so you know what is available; you pick it up at your appointment, and she will tell you which one actually suits your hair.
 

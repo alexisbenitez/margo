@@ -33,14 +33,23 @@ const SHELVES = [
       'Australian-made and plant-based, for dryness and for fine hair that needs body without weight.',
     shots: [{ src: '/products/shelf-de-lorenzo.jpg', label: 'On the shelf' }],
   },
-  // Margo asked on 2026-08-07 for more Argila on the page. She has not sent a
-  // shelf photo of it yet, so the brand is named here and the shots go in as
-  // soon as she does. A brand with no photo still belongs on the list.
   {
     brand: 'Argila',
     blurb:
-      'Clay-based treatments and colour care, for hair that needs putting back together rather than covering up.',
-    shots: [],
+      'Argila Amazonia, from Brazil. White clay and murumuru oil, for smoothing that lasts and heat protection that does not weigh the hair down.',
+    shots: [{ src: '/products/shelf-argila.jpg', label: 'Smoothing range', portrait: true }],
+  },
+  // Angel is in, and specifically as the gift sets: "Angel esta bien pero como
+  // los set de regalos" (2026-08-07). The earlier confusion was about listing
+  // individual Angel products with prices, which is gone with the shop.
+  {
+    brand: 'Angel',
+    blurb:
+      'Mostly the gift sets, which land in time for Christmas and Mother’s Day. Shampoo, conditioner and a treatment boxed together.',
+    shots: [
+      { src: '/products/shelf-angel-gift-packs-1.jpg', label: 'Gift sets' },
+      { src: '/products/shelf-angel-gift-packs-2.jpg', label: 'Gift sets' },
+    ],
   },
 ]
 
@@ -82,6 +91,30 @@ export default function Products() {
             {BRANDS.map((b) => <span key={b} className="brand-chip">{b}</span>)}
           </Reveal>
 
+          {/* The whole wall in one shot, which is what she asked for from the
+              start: "fotos de los productos juntos, en estanteria". */}
+          <Reveal className="shelf-hero">
+            <button
+              type="button"
+              className="shelf-hero-media"
+              onClick={() => setLightbox({ src: '/products/shelf-full.jpg', label: 'The shelf', brand: 'In the studio' })}
+              aria-label="View the studio shelf larger"
+            >
+              <img src="/products/shelf-full.jpg" alt="The product shelf in Margo's studio, stocked floor to ceiling." />
+            </button>
+            <div className="shelf-hero-copy">
+              <h3>Everything, on one shelf.</h3>
+              <p>
+                This is the whole wall in the studio. If you have seen something here you like,
+                or you cannot remember the name of the one Margo used on you last time, text her
+                and she will tell you.
+              </p>
+              <a href={SMS_PRODUCTS} className="btn btn-ghost btn-sm">
+                <MessageSquare size={14} /> Text Margo
+              </a>
+            </div>
+          </Reveal>
+
           {SHELVES.map((group) => (
             <div className="shelf-group" key={group.brand}>
               <Reveal>
@@ -99,7 +132,7 @@ export default function Products() {
                   <Reveal key={s.src} className="shelf-card">
                     <button
                       type="button"
-                      className="shelf-media"
+                      className={`shelf-media ${s.portrait ? 'portrait' : ''}`}
                       onClick={() => setLightbox({ ...s, brand: group.brand })}
                       aria-label={`View ${group.brand} ${s.label} larger`}
                     >

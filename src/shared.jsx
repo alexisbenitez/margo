@@ -20,10 +20,11 @@ export const smsTo = (body) => `sms:${PHONE_E164}?&body=${encodeURIComponent(bod
 export const SMS_URL = smsTo('Hi Margo, I would like to book an appointment. My name is ')
 export const SMS_PRODUCTS = smsTo('Hi Margo, I would like to ask about a product. ')
 
-// Product lines Margo carries. Brelil is deliberately out: she only stocks one of
-// its lines for now (confirmed 2026-08-07). Argila is in and she wants MORE of it
-// on the page ("Aumentar Argila productos", 2026-08-07), pending a shelf photo.
-export const BRANDS = ['Wella', 'Paul Mitchell', 'De Lorenzo', 'Argila']
+// Product lines Margo carries, all confirmed by her on 2026-08-07. Brelil is
+// deliberately out: she only stocks one of its lines for now. Angel is in, and
+// specifically as the gift sets, which is what the July "remove Angel" messages
+// were really about (individual Angel products with prices, now gone with the shop).
+export const BRANDS = ['Wella', 'Paul Mitchell', 'De Lorenzo', 'Argila', 'Angel']
 
 // ---- Admin auth (client-side, demo-level) -----------------------------------
 // Shared password both Margo and Alexis use. Client-side only: keeps the admin
